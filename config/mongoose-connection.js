@@ -1,7 +1,10 @@
 const mongoose = require("mongoose")
+const config = require("config")
+
+
 
 mongoose
-.connect("mongodb://localhost:27017/scatch")
+.connect(`${config.get("MONGODB_URI")}/scatch`)
 .then(function(){console.log("connected to mongodb")})
 .catch(function(err){console.log("Error", err);
 })
